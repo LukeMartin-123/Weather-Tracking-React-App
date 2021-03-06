@@ -5,7 +5,7 @@ const locationSchema = new mongoose.Schema({
     city: {type: String, required: true},
     state: {type: String},
     country: {type: String, required: true},
-    temperature: {type: Number. required: true}
+    temperature: {type: Number, required: true}
 });
 
 // Defining the Location Model based on above Schema

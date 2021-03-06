@@ -12,11 +12,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Testing the server path in PostMan
-app.get("/test", (req, res) => {
-    res.send("It Works")
-})
-
 //Connecting to MongoDB
 mongoose.connect(process.env.MDB_CONNECT, 
     {
@@ -27,6 +22,10 @@ mongoose.connect(process.env.MDB_CONNECT,
     if (err) return console.error(err)
     console.log("Connected to MongoDB")
 });
+
+// Setting up routes
+app.use("/track", require("./routers/locationRouter"));
+
 
 //Server Connection and Confirmation
 app.listen(PORT, function () {

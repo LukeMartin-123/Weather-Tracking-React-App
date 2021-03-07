@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./style.css";
 
 
@@ -28,9 +27,9 @@ function NavbarI() {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="mr-auto" navbar>
- 
-                
+
                 <>
+
                 <NavItem>
                   <NavLink
                     href="/"
@@ -43,6 +42,7 @@ function NavbarI() {
                     Home
                   </NavLink>
                 </NavItem>
+
                 <NavItem>
                   <NavLink
                     href="/Table"
@@ -55,6 +55,7 @@ function NavbarI() {
                     Table View
                   </NavLink>
                 </NavItem>
+
                 <NavItem>
                   <NavLink
                     href="/Chart"
@@ -67,17 +68,7 @@ function NavbarI() {
                     Chart
                   </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink
-                    href=""
-                    className={
-                      window.location.pathname === ""
-                        ? "nav-link active"
-                        : "nav-link"
-                    }
-                  >
-                  </NavLink>
-                </NavItem>
+                
                 <NavItem>
                   <NavLink
                     href="/Track"

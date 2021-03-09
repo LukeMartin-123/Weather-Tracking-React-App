@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Popup from "../Popup/Popup";
 import "./style.css";
 import {
     Collapse,
@@ -12,6 +13,7 @@ import {
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function NavbarI() {
+    const [buttonPopup, setButtonPopup] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
@@ -24,7 +26,7 @@ function NavbarI() {
     
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
-              <Nav className="mr-auto" navbar>
+            <Nav className="mr-auto" navbar>
 
                 <>
 
@@ -67,22 +69,22 @@ function NavbarI() {
                   </NavLink>
                 </NavItem>
                 
-                <NavItem>
-                  <NavLink
-                    href="/Track"
-                    className={
-                      window.location.pathname === "/Track"
-                        ? "nav-link active"
-                        : "nav-link"
-                    }
+                <NavItem >
+                <Popup trigger={buttonPopup} setTrigger={setButtonPopup}> </Popup>
+                  <NavLink 
+                    onClick={() => setButtonPopup(true)}
+                    className= "nav-link" 
+                    
                   >
                     Track
                   </NavLink>
+                  
                 </NavItem>
-
+                
      </>
               </Nav>
             </Collapse>
+            
           </Navbar>
         </div>
   );

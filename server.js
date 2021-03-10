@@ -9,6 +9,8 @@ dotenv.config();
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+const routes = require("./routes/locationRoute")
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -24,7 +26,7 @@ mongoose.connect(process.env.MDB_CONNECT,
 });
 
 // Setting up routes
-app.use("/track", require("./routers/locationRouter"));
+app.use("/", routes);
 
 
 //Server Connection and Confirmation

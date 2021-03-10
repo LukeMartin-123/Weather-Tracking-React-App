@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./Popup.css"
 import API from "../../utils/API";
+import Location from "../../../models/locationModel"
 
 const apiInfo = {
   key: "9e0d8e95fda39b3fbd21fb0a7505ef69",

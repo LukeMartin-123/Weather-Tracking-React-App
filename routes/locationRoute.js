@@ -1,7 +1,19 @@
-const router = require("express").Router();
+const express = require("express")
+const router = express.Router();
 const Location = require("../models/locationModel")
 
-router.post("/", async (req, res) => {
+router.get("/api", (req, res) => {
+    Location.find({ })
+        .then((data) => {
+            console.log("Data ", data)
+            res.json(data)
+        })
+        .catch((error) => {
+            console.log(err)
+        })
+    });
+
+router.post("/api", async (req, res) => {
     try {
     const {city, state, country, temperature} = req.body;
     

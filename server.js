@@ -15,13 +15,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Connecting to MongoDB
-mongoose.connect(process.env.MDB_CONNECT, 
-    {
+mongoose.connect("mongodb://localhost/weather_locations", {
     useNewUrlParser: true,
     useUnifiedTopology: true 
-    }, 
-(err) => {
-    if (err) return console.error(err)
+    }), 
+
+mongoose.connection.on("connected", () => {
     console.log("Connected to MongoDB")
 });
 

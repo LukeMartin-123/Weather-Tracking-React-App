@@ -11,14 +11,24 @@ router.get("/", (req, res) => {
         .catch((error) => {
             console.log(err)
         })
-    });
+});
 
 router.post("/save", (req, res) => {
     console.log("Body: ", req.body);
-    res.json({
-        msg: "We received your data"
+    const data = req.body;
+
+    const newLocation = new Location({
+       city: data.name,
+       temperature: data.main.temp,  
+    
     });
+
+    newLocation.save()
+
+
+    
 });
 
 
-module.exports = router
+
+    module.exports = router

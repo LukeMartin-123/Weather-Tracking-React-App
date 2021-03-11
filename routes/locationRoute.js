@@ -20,15 +20,18 @@ router.post("/save", (req, res) => {
     const newLocation = new Location({
        city: data.name,
        temperature: data.main.temp,  
-    
     });
 
-    newLocation.save()
-
-
-    
+    newLocation.save((error) => {
+        if (error) {
+            res.status(500).json({ msg: "Internal Server Error"})
+            return
+        }
+        return res.json({
+            msg: "Data has been saved to the database"
+        })
+    })
+ 
 });
 
-
-
-    module.exports = router
+module.exports = router

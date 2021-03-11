@@ -20,7 +20,7 @@ function Popup(props) {
           setCity("");
           console.log(result)
           axios({
-            url: "http://localhost:3001/api/save",
+            url: "http://localhost:3000/api/save",
             method: "POST",
             data: result
           })

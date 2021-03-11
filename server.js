@@ -26,8 +26,7 @@ mongoose.connect(process.env.MDB_CONNECT,
 });
 
 // Setting up routes
-app.use("/", routes);
-
+app.use("/api", routes);
 
 //Server Connection and Confirmation
 app.listen(PORT, function () {

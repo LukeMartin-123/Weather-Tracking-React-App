@@ -1,12 +1,12 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import "./Popup.css"
-import API from "../../utils/API";
-import Location from "../../../models/locationModel"
 
 const apiInfo = {
   key: "9e0d8e95fda39b3fbd21fb0a7505ef69",
   base: "https://api.openweathermap.org/data/2.5/"
 }
+
 function Popup(props) {
   const [city, setCity] = useState("")
   const [weather, setWeather] = useState("")
@@ -19,15 +19,21 @@ function Popup(props) {
           setWeather(result);
           setCity("");
           console.log(result)
+          axios({
+            url: "http://localhost:3001/api/save",
+            method: "POST",
+            data: result
+          })
+          .then(() => {
+            console.log("Data has been sent")
+          })
+          .catch(() => {
+            console.log("Data has NOT been sent")
+          })
         });
     }
+  }
 
-    API.saveLocation(newCity)
-      .then(res => {
-        const newCities = [...cities, newCity];
-        setCity(newCity);
-        setInputValue("");
-      });
 
     return (props.trigger) ? (
       <div className="popup">
@@ -35,7 +41,7 @@ function Popup(props) {
           <input
             type="text"
             className="search-bar"
-            placeholder="city"
+            placeholder="Enter a city"
             onChange={e => setCity(e.target.value)}
             value={city}
             onKeyPress={search}
@@ -45,5 +51,6 @@ function Popup(props) {
       </div>
     ) : "";
   }
+
 
   export default Popup

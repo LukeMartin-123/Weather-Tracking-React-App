@@ -3,7 +3,7 @@ import React from 'react'
 export const Chart = () => {
     return (
         <div>
-            <p>This is charts page</p>
+            <p>This is for charts</p>
         </div>
     )
 }

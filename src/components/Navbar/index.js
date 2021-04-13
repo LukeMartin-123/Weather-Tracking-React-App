@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Popup from "../Popup/Popup";
 import "./style.css";
 import {
     Collapse,
@@ -42,44 +41,7 @@ function NavbarI() {
                     Home
                   </NavLink>
                 </NavItem>
-
-                <NavItem>
-                  <NavLink
-                    href="/Table"
-                    className={
-                      window.location.pathname === "/Table"
-                        ? "nav-link active"
-                        : "nav-link"
-                    }
-                  >
-                    Table View
-                  </NavLink>
-                </NavItem>
-
-                <NavItem>
-                  <NavLink
-                    href="/Chart"
-                    className={
-                      window.location.pathname === "/Chart"
-                        ? "nav-link active"
-                        : "nav-link"
-                    }
-                  >
-                    Chart
-                  </NavLink>
-                </NavItem>
                 
-                <NavItem >
-                <Popup trigger={buttonPopup} setTrigger={setButtonPopup}> </Popup>
-                  <NavLink 
-                    onClick={() => setButtonPopup(true)}
-                    className= "nav-link" 
-                    
-                  >
-                    Track
-                  </NavLink>
-                  
-                </NavItem>
                 
      </>
               </Nav>

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.css";
 
 const apiKey = {
   key: "9e0d8e95fda39b3fbd21fb0a7505ef69",

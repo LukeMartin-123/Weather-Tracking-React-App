@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 
 const apiKey = {
@@ -7,6 +7,8 @@ const apiKey = {
 }
 
 function Home() {
+
+  const [query, setQuery] = useState("")
 
   const dateBuilder = (d) => {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

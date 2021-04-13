@@ -1,12 +1,28 @@
 import React from "react";
-import Row from "../components/Row/Row";
-import Col from "../components/Col/Col"
 
-const Home = () => (
-  <div className="container rounded w-75 mt-5 mb-5 p-3 d-block">
+const apiKey = {
+  key: "9e0d8e95fda39b3fbd21fb0a7505ef69",
+  base: "https://api.openweathermap.org/data/2.5"
+}
 
-  </div>
-  
-);
+function Home() {
+  return (
+    <div className="home">
+      <main>
+        <div className="search-box">
+          <input 
+          type="text"
+          className="searchBar"
+          placeholder="Search..."
+          >
+
+          </input>
+        </div>
+      </main>
+
+    </div>
+
+  );
+}
 
 export default Home;
